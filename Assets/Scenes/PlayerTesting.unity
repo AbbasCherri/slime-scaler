@@ -270,7 +270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315115568}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -333,9 +333,9 @@ GameObject:
   - component: {fileID: 693472030}
   - component: {fileID: 693472029}
   - component: {fileID: 693472032}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Testing Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -772,6 +772,14 @@ PrefabInstance:
     - target: {fileID: 4453921592963942061, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
+      propertyPath: gravityMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
+      propertyPath: lowJumpMultiplier
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
