@@ -51,12 +51,14 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
-        if (_rb.velocity.y < 0)
+        switch (_rb.velocity.y)
         {
-            _rb.velocity += Vector2.up * (Physics2D.gravity.y * (gravityMultiplier - 1) * Time.deltaTime);
-        } else if (_rb.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            _rb.velocity += Vector2.up * (Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime);
+            case < 0:
+                _rb.velocity += Vector2.up * (Physics2D.gravity.y * (gravityMultiplier - 1) * Time.deltaTime);
+                break;
+            case > 0 when !Input.GetButton("Jump"):
+                _rb.velocity += Vector2.up * (Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime);
+                break;
         }
     }
 }
