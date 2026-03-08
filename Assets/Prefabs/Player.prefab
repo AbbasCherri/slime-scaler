@@ -195,6 +195,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   sprintSpeed: 10
-  jumpForce: 5
+  jumpForce: 8
   groundRadius: 0.1
   groundCheck: {fileID: 2918895170076462688}
+  gravityMultiplier: 3
+  lowJumpMultiplier: 2
+  coyoteTime: 5

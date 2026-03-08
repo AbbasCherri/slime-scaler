@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject groundCheck;
     [SerializeField] private float gravityMultiplier;
     [SerializeField] private float lowJumpMultiplier;
+    [SerializeField] private float coyoteTime;
+    private float _currentCoyoteTime;
     private bool _isGrounded;
 
     private void Start()
@@ -45,8 +47,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void JumpLogic()
     {
-        _isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, groundRadius, LayerMask.GetMask("Ground"));
-        if (Input.GetButtonDown("Jump") && _isGrounded)
+        _isGrounded =
+            Physics2D.OverlapCircle(groundCheck.transform.position, groundRadius, LayerMask.GetMask("Ground"));
+        if (!_isGrounded)
+        {
+            _currentCoyoteTime += Time.deltaTime;
+        }
+        else
+        {
+            _currentCoyoteTime = 0;
+        }
+        
+        if (Input.GetButtonDown("Jump") && _currentCoyoteTime < coyoteTime)
         {
             Jump();
         }
