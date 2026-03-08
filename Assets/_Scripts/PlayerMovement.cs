@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float _currentReserveTime;
     private bool _reservedJump;
     private bool _isGrounded;
+    [Header("Wall Jump")]
+    [SerializeField] private GameObject wallCheck;
 
     private void Start()
     {
