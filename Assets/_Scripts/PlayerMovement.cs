@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float lowJumpMultiplier;
     [SerializeField] private float coyoteTime;
     private float _currentCoyoteTime;
+    [SerializeField] private float reserveTime;
+    private float _currentReserveTime;
+    private bool _reservedJump;
     private bool _isGrounded;
 
     private void Start()
@@ -49,20 +52,54 @@ public class PlayerMovement : MonoBehaviour
     {
         _isGrounded =
             Physics2D.OverlapCircle(groundCheck.transform.position, groundRadius, LayerMask.GetMask("Ground"));
+
+        // Reserved Jump Time Logic
+        
+        if (_reservedJump)
+        {
+            _currentReserveTime += Time.deltaTime;
+        }
+        else
+        {
+            _currentReserveTime = 0;
+        }
+        
+        
+        // Coyote Time Logic
+        
         if (!_isGrounded)
         {
             _currentCoyoteTime += Time.deltaTime;
         }
         else
         {
-            _currentCoyoteTime = 0;
-        }
-        
-        if (Input.GetButtonDown("Jump") && _currentCoyoteTime < coyoteTime)
-        {
-            Jump();
+            if (_reservedJump && _currentReserveTime < reserveTime) // Reserve Payoff and Relief
+            {
+                Jump();
+                _reservedJump = false;
+            }
+            
+            _currentCoyoteTime = 0; 
         }
 
+        
+        // Jump Logic 
+        
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (_currentCoyoteTime < coyoteTime) // Coyote Time Check
+            {
+                Jump();
+            }
+            else // Reserve Jump
+            {
+                _reservedJump = true;
+            }
+            
+        }
+
+        
+        // Gravity Logic
         switch (_rb.velocity.y)
         {
             case < 0:

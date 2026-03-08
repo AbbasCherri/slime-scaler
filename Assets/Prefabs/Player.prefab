@@ -200,4 +200,5 @@ MonoBehaviour:
   groundCheck: {fileID: 2918895170076462688}
   gravityMultiplier: 3
   lowJumpMultiplier: 2
-  coyoteTime: 5
+  coyoteTime: 0.1
+  reserveTime: 1
