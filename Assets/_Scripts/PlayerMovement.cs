@@ -21,7 +21,12 @@ public class PlayerMovement : MonoBehaviour
     private bool _reservedJump;
     private bool _isGrounded;
     [Header("Wall Jump")]
-    [SerializeField] private GameObject wallCheck;
+    [SerializeField] private GameObject leftWallCheck;
+    [SerializeField] private GameObject rightWallCheck;
+    [SerializeField] private float wallCheckRadius;
+    [SerializeField] private float slideSpeed;
+    private bool _isRightWall;
+    private bool _isLeftWall;
 
     private void Start()
     {
@@ -37,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
         // Jump
         JumpLogic();
         
+        // Wall Jump Logic
+        WallJumpLogic();
         
     }
 
@@ -48,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+    }
+
+    private void Jump(float direction)
+    {
+        _rb.velocity += new Vector2(direction * speed, jumpForce);
     }
 
     private void JumpLogic()
@@ -110,6 +122,31 @@ public class PlayerMovement : MonoBehaviour
             case > 0 when !Input.GetButton("Jump"):
                 _rb.velocity += Vector2.up * (Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime);
                 break;
+        }
+    }
+
+    private void WallJumpLogic()
+    {
+        _isLeftWall = Physics2D.Raycast(leftWallCheck.transform.position, new Vector2(-wallCheckRadius, 0),
+            wallCheckRadius,  LayerMask.GetMask("Ground"));
+        _isRightWall = Physics2D.Raycast(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0),
+            wallCheckRadius,  LayerMask.GetMask("Ground"));
+
+
+        if ((_isLeftWall || _isRightWall) && Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }
+
+        // if (_isRightWall && Input.GetButtonDown("Jump"))
+        // {
+        //     Jump(1);
+        // }
+        //
+        
+        if (_isLeftWall || _isRightWall)
+        {
+            _rb.velocity += new Vector2(0, -slideSpeed);
         }
     }
 }
