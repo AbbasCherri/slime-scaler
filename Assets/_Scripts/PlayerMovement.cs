@@ -56,11 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
     }
-
-    private void Jump(float direction)
-    {
-        _rb.velocity += new Vector2(direction * speed, jumpForce);
-    }
+    
 
     private void JumpLogic()
     {
@@ -138,12 +134,6 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
 
-        // if (_isRightWall && Input.GetButtonDown("Jump"))
-        // {
-        //     Jump(1);
-        // }
-        //
-        
         if (_isLeftWall || _isRightWall)
         {
             _rb.velocity += new Vector2(0, -slideSpeed);
