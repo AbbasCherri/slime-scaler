@@ -1,15 +1,14 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] private float speed;
+    [Header("Movement")] [SerializeField] private float speed;
     [SerializeField] private float sprintSpeed;
     private float _movementSpeed;
     private Rigidbody2D _rb;
     private float _xInput;
-    [Header("Jump")]
-    [SerializeField] private float jumpForce;
+    [Header("Jump")] [SerializeField] private float jumpForce;
     [SerializeField] private float groundRadius;
     [SerializeField] private GameObject groundCheck;
     [SerializeField] private float gravityMultiplier;
@@ -20,11 +19,15 @@ public class PlayerMovement : MonoBehaviour
     private float _currentReserveTime;
     private bool _reservedJump;
     private bool _isGrounded;
-    [Header("Wall Jump")]
-    [SerializeField] private GameObject leftWallCheck;
+    [Header("Wall Jump")] [SerializeField] private GameObject leftWallCheck;
     [SerializeField] private GameObject rightWallCheck;
     [SerializeField] private float wallCheckRadius;
     [SerializeField] private float slideSpeed;
+    [SerializeField] private float horizonWallJumpingSpeed; 
+    [SerializeField] private float verticalWallJumpingSpeed;
+    [SerializeField] private float wallJumpDuration;
+    private bool _isWallJumping;
+    private float _currentWallTime;
     private bool _isRightWall;
     private bool _isLeftWall;
 
@@ -38,27 +41,37 @@ public class PlayerMovement : MonoBehaviour
         // Movement
         _xInput = Input.GetAxisRaw("Horizontal");
         _movementSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : speed;
-        
+
         // Jump
         JumpLogic();
-        
+
         // Wall Jump Logic
         WallJumpLogic();
-        
+
     }
 
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(_xInput * _movementSpeed, _rb.velocity.y);
+        if (!_isWallJumping)
+        {
+            _rb.velocity = new Vector2(_xInput * _movementSpeed, _rb.velocity.y);
+        }
     }
 
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
     }
-    
 
-    private void JumpLogic()
+    private void WallJump(int direction)
+    {
+        _isWallJumping = true;
+        _currentWallTime = 0;
+        _rb.velocity = new  Vector2(direction * horizonWallJumpingSpeed, verticalWallJumpingSpeed);
+    }
+
+
+private void JumpLogic()
     {
         _isGrounded =
             Physics2D.OverlapCircle(groundCheck.transform.position, groundRadius, LayerMask.GetMask("Ground"));
@@ -124,19 +137,34 @@ public class PlayerMovement : MonoBehaviour
     private void WallJumpLogic()
     {
         _isLeftWall = Physics2D.Raycast(leftWallCheck.transform.position, new Vector2(-wallCheckRadius, 0),
-            wallCheckRadius,  LayerMask.GetMask("Ground"));
+            wallCheckRadius,  LayerMask.GetMask("Wall"));
         _isRightWall = Physics2D.Raycast(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0),
-            wallCheckRadius,  LayerMask.GetMask("Ground"));
+            wallCheckRadius,  LayerMask.GetMask("Wall"));
 
-
-        if ((_isLeftWall || _isRightWall) && Input.GetButtonDown("Jump"))
+        if (_isWallJumping)
         {
-            Jump();
+            _currentWallTime += Time.deltaTime;
+            if (_currentWallTime >= wallJumpDuration)
+            {
+                _isWallJumping = false;
+            }
         }
 
         if (_isLeftWall || _isRightWall)
         {
-            _rb.velocity += new Vector2(0, -slideSpeed);
+            _rb.velocity += Vector2.up * (Physics2D.gravity.y * slideSpeed * Time.deltaTime);
+        }
+
+        if (_isGrounded) return;
+        
+        if (_isLeftWall && Input.GetButtonDown("Jump"))
+        {
+            WallJump(1);
+        }
+
+        if (_isRightWall && Input.GetButtonDown("Jump"))
+        {
+            WallJump(-1);
         }
     }
 }

@@ -833,6 +833,14 @@ PrefabInstance:
       propertyPath: reserveTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
+      propertyPath: wallJumpingSpeedHorizon
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
+      propertyPath: wallJumpingSpeedVertical
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

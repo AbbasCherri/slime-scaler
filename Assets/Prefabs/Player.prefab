@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 4453921592963942061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.75, y: -2.75, z: 0}
+  m_LocalPosition: {x: 4.34719, y: -2.9324844, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -207,7 +207,10 @@ MonoBehaviour:
   leftWallCheck: {fileID: 8452306079868705906}
   rightWallCheck: {fileID: 7299223061627456804}
   wallCheckRadius: 0.2
-  slideSpeed: 0.2
+  slideSpeed: 0.01
+  horizonWallJumpingSpeed: 8
+  verticalWallJumpingSpeed: 5
+  wallJumpDuration: 0.5
 --- !u!1 &7299223061627456804
 GameObject:
   m_ObjectHideFlags: 0
