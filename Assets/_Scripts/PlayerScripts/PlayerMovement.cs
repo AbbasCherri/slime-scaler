@@ -153,7 +153,7 @@ namespace _Scripts.PlayerScripts
 
             if (_isLeftWall || _isRightWall)
             {
-                _rb.velocity += Vector2.up * (Physics2D.gravity.y * slideSpeed * Time.deltaTime);
+                _rb.velocity = Vector2.up * (Physics2D.gravity.y * slideSpeed * Time.deltaTime);
             }
 
             if (_isGrounded) return;
