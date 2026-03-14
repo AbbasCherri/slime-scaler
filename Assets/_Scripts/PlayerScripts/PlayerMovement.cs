@@ -151,12 +151,12 @@ namespace _Scripts.PlayerScripts
                 }
             }
 
+            if (_isGrounded) return;
+            
             if (_isLeftWall || _isRightWall)
             {
                 _rb.velocity = Vector2.up * (Physics2D.gravity.y * slideSpeed * Time.deltaTime);
             }
-
-            if (_isGrounded) return;
         
             if (_isLeftWall && Input.GetButtonDown("Jump"))
             {
