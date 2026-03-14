@@ -36,6 +36,12 @@ namespace _Scripts.PlayerScripts
             {
                 Destroy(gameObject);
             }
+
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                Destroy(other.gameObject);
+                Destroy(gameObject);
+            }
         }
         
     }
