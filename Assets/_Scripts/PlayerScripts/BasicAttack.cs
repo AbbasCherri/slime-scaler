@@ -40,10 +40,5 @@ namespace _Scripts.PlayerScripts
             transform.localScale = new Vector2(transform.localScale.x * scaleLose, transform.localScale.y * scaleLose);
         }
         
-        private void ScaleUp()
-        {
-            transform.localScale = new Vector2(transform.localScale.x * scaleGain, transform.localScale.y * scaleGain);
-            
-        }
     }
 }

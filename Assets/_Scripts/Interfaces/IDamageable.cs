@@ -2,9 +2,9 @@ namespace _Scripts.Interfaces
 {
     public interface IDamageable
     {
-        public int GetCurrentHealth();
-        public void SetCurrentHealth(int healthPoints);
-
-        public int GetMaxHealth();
+        public float GetCurrentHealth();
+        public void Damage(float healthPoints);
+        public void Heal(float healthPoints);
+        public float GetMaxHealth();
     }
 }
