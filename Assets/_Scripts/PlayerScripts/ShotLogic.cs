@@ -40,8 +40,10 @@ namespace _Scripts.PlayerScripts
             if (other.gameObject.CompareTag("Enemy"))
             {
                 Destroy(other.gameObject);
+                PlayerHealth.GetInstance().Heal(.1f);
                 Destroy(gameObject);
             }
+            
         }
         
     }
