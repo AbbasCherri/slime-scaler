@@ -23,7 +23,7 @@ namespace _Scripts.PlayerScripts
         [Header("Wall Jump")] [SerializeField] private GameObject leftWallCheck;
         [SerializeField] private GameObject rightWallCheck;
         [SerializeField] private float wallCheckRadius;
-        [SerializeField] private float slideSpeed;
+        [SerializeField] [Range(0,1)] private float slideSpeed;
         [SerializeField] private float horizonWallJumpingSpeed; 
         [SerializeField] private float verticalWallJumpingSpeed;
         [SerializeField] private float wallJumpDuration;
