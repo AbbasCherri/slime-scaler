@@ -155,11 +155,6 @@ namespace _Scripts.PlayerScripts
                     _isWallJumping = false;
                 }
             }
-            
-            if (_isLeftWall || _isRightWall)
-            {
-                _rb.velocity = new Vector2(transform.position.x, Physics2D.gravity.y * slideSpeed);
-            }
         
             if (_isLeftWall && Input.GetButtonDown("Jump"))
             {
@@ -170,6 +165,12 @@ namespace _Scripts.PlayerScripts
             {
                 WallJump(-1);
             }
+            
+            if ((_isLeftWall || _isRightWall) && !_isWallJumping)
+            {
+                _rb.velocity = new Vector2(transform.position.x, Physics2D.gravity.y * slideSpeed);
+            }
+            
         }
     }
 }
