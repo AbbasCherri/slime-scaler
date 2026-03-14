@@ -137,11 +137,16 @@ namespace _Scripts.PlayerScripts
 
         private void WallJumpLogic()
         {
+            // Debug.DrawRay(leftWallCheck.transform.position, new Vector2(-wallCheckRadius, 0),  Color.red);
+            // Debug.DrawRay(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0), Color.red);
+            
             _isLeftWall = Physics2D.Raycast(leftWallCheck.transform.position, new Vector2(-wallCheckRadius, 0),
                 wallCheckRadius,  LayerMask.GetMask("Wall"));
             _isRightWall = Physics2D.Raycast(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0),
                 wallCheckRadius,  LayerMask.GetMask("Wall"));
 
+            if (_isGrounded) return;
+            
             if (_isWallJumping)
             {
                 _currentWallTime += Time.deltaTime;
@@ -150,12 +155,10 @@ namespace _Scripts.PlayerScripts
                     _isWallJumping = false;
                 }
             }
-
-            if (_isGrounded) return;
             
             if (_isLeftWall || _isRightWall)
             {
-                _rb.velocity = Vector2.up * (Physics2D.gravity.y * slideSpeed * Time.deltaTime);
+                _rb.velocity = new Vector2(transform.position.x, Physics2D.gravity.y * slideSpeed);
             }
         
             if (_isLeftWall && Input.GetButtonDown("Jump"))
