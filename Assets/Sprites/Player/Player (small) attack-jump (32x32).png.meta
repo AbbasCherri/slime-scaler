@@ -100,9 +100,9 @@ TextureImporter:
       name: Player (small) attack-jump (32x32)_2
       rect:
         serializedVersion: 2
-        x: 50
+        x: 80
         y: 32
-        width: 28
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -121,9 +121,9 @@ TextureImporter:
       name: Player (small) attack-jump (32x32)_3
       rect:
         serializedVersion: 2
-        x: 82
+        x: 112
         y: 32
-        width: 28
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -142,9 +142,9 @@ TextureImporter:
       name: Player (small) attack-jump (32x32)_4
       rect:
         serializedVersion: 2
-        x: 114
+        x: 144
         y: 32
-        width: 28
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -160,12 +160,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player (small) attack-jump (32x32)_5
+      name: Player (small) attack-jump (32x32)_1
       rect:
         serializedVersion: 2
-        x: 145
+        x: 48
         y: 32
-        width: 29
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9aba8c3d9a5578e48bf83bd9da13d47c
-      internalID: -2005902071
+      spriteID: c7b11593de03faa409d0e320f9734b94
+      internalID: 292800263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player (small) attack-jump (32x32)_6
+      name: Player (small) attack-jump (32x32)_5
       rect:
         serializedVersion: 2
         x: 176
@@ -195,19 +195,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7285dffe7148a5c4c91c3d0a64ed1df1
-      internalID: -666638554
+      spriteID: ec6c050f03049ee40a9b378e56a1f2a1
+      internalID: -2005902071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player (small) attack-jump (32x32)_10
+      name: Player (small) attack-jump (32x32)_7
       rect:
         serializedVersion: 2
-        x: 49
+        x: 48
         y: 0
-        width: 29
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -216,7 +216,70 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54da413e408437a4b8443d8615382d8b
+      spriteID: c912d95c7ca7fd14aa7d41e097355632
+      internalID: -1791825091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player (small) attack-jump (32x32)_8
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f42717da115724aa467cb3fdc49909
+      internalID: -1195092312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player (small) attack-jump (32x32)_9
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1765e5811353a8b44994fd2f221d91d6
+      internalID: 1811989275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player (small) attack-jump (32x32)_10
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a26152b75fa37f40ab7d7f5100ce4a6
       internalID: 232922771
       vertices: []
       indices: 
@@ -226,9 +289,9 @@ TextureImporter:
       name: Player (small) attack-jump (32x32)_11
       rect:
         serializedVersion: 2
-        x: 82
+        x: 176
         y: 0
-        width: 29
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -237,7 +300,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d291731478754cf4998f56addd3d6f9d
+      spriteID: e9b63b8a03ce3394b8fe43fb7e682b55
       internalID: -145345794
       vertices: []
       indices: 
@@ -247,9 +310,9 @@ TextureImporter:
       name: Player (small) attack-jump (32x32)_12
       rect:
         serializedVersion: 2
-        x: 112
+        x: 208
         y: 0
-        width: 28.307692
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -258,7 +321,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a014b4af9f8f36441afb408d4af02f45
+      spriteID: 3e41203aabb111d4f8d7e62a930aa823
       internalID: -2074871774
       vertices: []
       indices: 
@@ -268,9 +331,9 @@ TextureImporter:
       name: Player (small) attack-jump (32x32)_13
       rect:
         serializedVersion: 2
-        x: 144
+        x: 240
         y: 0
-        width: 28
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -279,8 +342,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22d0da889c1759842bb5594bde7c94a6
+      spriteID: 59938675df930b644849a0db18d6578b
       internalID: -344534068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player (small) attack-jump (32x32)_14
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.48730183, y: 0.22063725}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8c0490073acf94e934a39f018b268f
+      internalID: -331497248
       vertices: []
       indices: 
       edges: []
@@ -289,9 +373,9 @@ TextureImporter:
       name: Player (small) attack-jump (32x32)_15
       rect:
         serializedVersion: 2
-        x: 178
+        x: 304
         y: 0
-        width: 28
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -300,7 +384,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb451487cacbe79418096a41cefb6d54
+      spriteID: 794c29d51fe82464b8e060b54f70f57d
       internalID: -542975150
       vertices: []
       indices: 
@@ -310,9 +394,9 @@ TextureImporter:
       name: Player (small) attack-jump (32x32)_16
       rect:
         serializedVersion: 2
-        x: 211
+        x: 336
         y: 0
-        width: 28
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -321,92 +405,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43f4b1383ea08ad428a5f54b3818da6d
+      spriteID: 10afd850cae728745a22e86953a1a9ed
       internalID: -1113816122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player (small) attack-jump (32x32)_17
-      rect:
-        serializedVersion: 2
-        x: 241
-        y: 0
-        width: 28
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c8f569295852ff41a4dbc6003addfaf
-      internalID: 1978324388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player (small) attack-jump (32x32)_18
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 0
-        width: 28
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50d3623ec49a61d49bc4a7a0048fd252
-      internalID: 1676724112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player (small) attack-jump (32x32)_19
-      rect:
-        serializedVersion: 2
-        x: 306
-        y: 0
-        width: 28
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b104c69063f349e459fc7331543c5b7f
-      internalID: 1882346117
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player (small) attack-jump (32x32)_20
-      rect:
-        serializedVersion: 2
-        x: 337
-        y: 0
-        width: 28
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b4e3f8d8e57d374f9057ce39413faa5
-      internalID: -297701221
       vertices: []
       indices: 
       edges: []
@@ -431,11 +431,7 @@ TextureImporter:
       Player (small) attack-jump (32x32)_14: -331497248
       Player (small) attack-jump (32x32)_15: -542975150
       Player (small) attack-jump (32x32)_16: -1113816122
-      Player (small) attack-jump (32x32)_17: 1978324388
-      Player (small) attack-jump (32x32)_18: 1676724112
-      Player (small) attack-jump (32x32)_19: 1882346117
       Player (small) attack-jump (32x32)_2: -1573116795
-      Player (small) attack-jump (32x32)_20: -297701221
       Player (small) attack-jump (32x32)_3: -1272038284
       Player (small) attack-jump (32x32)_4: -1073321544
       Player (small) attack-jump (32x32)_5: -2005902071

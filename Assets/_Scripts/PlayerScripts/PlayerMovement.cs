@@ -34,6 +34,7 @@ namespace _Scripts.PlayerScripts
         private bool _isWallJumping;
         private float _currentWallTime;
         private bool _isOnWall;
+        [SerializeField] public Animator animator;
 
         private void Start()
         {
@@ -52,7 +53,9 @@ namespace _Scripts.PlayerScripts
 
             // Wall Jump Logic
             WallJumpLogic();
-
+            animator.SetFloat("Speed", Math.Abs(_rb.velocity.x));
+            animator.SetFloat("yVel", _rb.velocity.y);
+            animator.SetBool("Grounded", _isGrounded);
         }
 
         private void FixedUpdate()
@@ -74,6 +77,7 @@ namespace _Scripts.PlayerScripts
         private void Jump()
         {
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+            animator.SetTrigger("Jump");
         }
 
         private void WallJump(float direction)
@@ -81,6 +85,7 @@ namespace _Scripts.PlayerScripts
             _isWallJumping = true;
             _currentWallTime = 0;
             _rb.velocity = new  Vector2(direction * horizonWallJumpingSpeed, verticalWallJumpingSpeed);
+            animator.SetTrigger("Jump");
         }
 
 

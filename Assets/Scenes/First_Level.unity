@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973636320792802029, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.349
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 2973636320792802029, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -198,6 +198,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 859308575}
     - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
       propertyPath: reserveTime
       value: 0.2
@@ -482,6 +486,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!95 &859308575 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1016649032200755213, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
+  m_PrefabInstance: {fileID: 602405766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1086320001
 GameObject:
   m_ObjectHideFlags: 0
