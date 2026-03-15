@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
   - Bullet
+  - Ground
   - Enemy
   layers:
   - Default
@@ -15,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Wall
-  - Attackable
+  - 
   - 
   - 
   - 
