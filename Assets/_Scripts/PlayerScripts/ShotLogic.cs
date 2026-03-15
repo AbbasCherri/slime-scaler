@@ -10,6 +10,15 @@ namespace _Scripts.PlayerScripts
         [SerializeField] private float bulletSpeed;
         [SerializeField] private float bulletDamage;
         private float _currentLifeTime;
+        private GameObject _player;
+        private Rigidbody2D _rb;
+
+        private void Awake()
+        {
+            _player = GameObject.FindWithTag("Player");
+            _rb = GetComponent<Rigidbody2D>();
+        }
+
 
         private void Update()
         {
@@ -23,11 +32,11 @@ namespace _Scripts.PlayerScripts
                 Destroy(gameObject);
             } 
         }
-
+ 
 
         private void ShotMovement()
         {
-            transform.Translate(new Vector2(0, 1) * (bulletSpeed * Time.deltaTime));
+            _rb.velocity = new Vector2( _player.transform.localScale.x * bulletSpeed, 0);
         }
 
         private void OnCollisionEnter2D(Collision2D other)

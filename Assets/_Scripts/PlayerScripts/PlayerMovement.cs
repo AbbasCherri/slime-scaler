@@ -57,13 +57,14 @@ namespace _Scripts.PlayerScripts
         {
             if (!_isWallJumping)
             {
-                // _facingDirection = _xInput switch
-                // {
-                //     > 0 => 1,
-                //     < 0 => -1,
-                //     _ => 0
-                // };
-                // transform.localScale = new Vector2(_facingDirection, 1);
+                _facingDirection = _xInput switch
+                {
+                    > 0 => 1,
+                    < 0 => -1,
+                    _ => _facingDirection
+                };
+
+                transform.localScale = new Vector2(_facingDirection, 1);
                 _rb.velocity = new Vector2(_xInput * _movementSpeed, _rb.velocity.y);
             }
         }
