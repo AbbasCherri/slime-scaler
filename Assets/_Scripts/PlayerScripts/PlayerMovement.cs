@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _Scripts.PlayerScripts
@@ -64,7 +65,7 @@ namespace _Scripts.PlayerScripts
                     _ => _facingDirection
                 };
 
-                transform.localScale = new Vector2(_facingDirection, 1);
+                transform.localScale = new Vector3(_facingDirection * Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 _rb.velocity = new Vector2(_xInput * _movementSpeed, _rb.velocity.y);
             }
         }

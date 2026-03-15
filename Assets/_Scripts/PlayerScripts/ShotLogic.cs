@@ -12,10 +12,12 @@ namespace _Scripts.PlayerScripts
         private float _currentLifeTime;
         private GameObject _player;
         private Rigidbody2D _rb;
-
-        private void Awake()
+        private float _dir;
+        
+        private void Start()
         {
             _player = GameObject.FindWithTag("Player");
+            _dir = _player.transform.localScale.x;
             _rb = GetComponent<Rigidbody2D>();
         }
 
@@ -36,7 +38,7 @@ namespace _Scripts.PlayerScripts
 
         private void ShotMovement()
         {
-            _rb.velocity = new Vector2( _player.transform.localScale.x * bulletSpeed, 0);
+            _rb.velocity = new Vector2( _dir * bulletSpeed, 0);
         }
 
         private void OnCollisionEnter2D(Collision2D other)
