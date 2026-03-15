@@ -183,6 +183,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5842019469745494752, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842019469745494752, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1646503297, guid: 85c3e2f438c10174ea480d91cf2be492, type: 3}
