@@ -31,13 +31,7 @@ namespace _Scripts.PlayerScripts
         private void Fire()
         {
             Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletPrefab.transform.rotation);
-            ScaleDown();
-        }
-        
-        
-        private void ScaleDown()
-        {
-            transform.localScale = new Vector2(transform.localScale.x * scaleLose, transform.localScale.y * scaleLose);
+            PlayerHealth.GetInstance().Damage(scaleLose);
         }
         
     }

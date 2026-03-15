@@ -537,7 +537,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 2685084814224697542}
   bulletPrefab: {fileID: 2488016032564076496, guid: 416af0410054879cab3df9eebbd19f89, type: 3}
   shotCooldown: 0.5
-  scaleLose: 0.9
+  scaleLose: 0.1
   scaleGain: 1.2
 --- !u!114 &3654732295887317796
 MonoBehaviour:
@@ -551,7 +551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8c75ec48d6df2f79a23463941edaf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 1.5
+  minHealth: 0.2
 --- !u!95 &1016649032200755213
 Animator:
   serializedVersion: 5
