@@ -9,6 +9,7 @@ namespace _Scripts.PlayerScripts
         private float _movementSpeed;
         private Rigidbody2D _rb;
         private float _xInput;
+        private int _facingDirection;
         [Header("Jump")] [SerializeField] private float jumpForce;
         [SerializeField] private float groundRadius;
         [SerializeField] private GameObject groundCheck;
@@ -34,6 +35,7 @@ namespace _Scripts.PlayerScripts
 
         private void Start()
         {
+            _facingDirection = 1;
             _rb = GetComponent<Rigidbody2D>();
         }
 
@@ -55,6 +57,13 @@ namespace _Scripts.PlayerScripts
         {
             if (!_isWallJumping)
             {
+                // _facingDirection = _xInput switch
+                // {
+                //     > 0 => 1,
+                //     < 0 => -1,
+                //     _ => 0
+                // };
+                // transform.localScale = new Vector2(_facingDirection, 1);
                 _rb.velocity = new Vector2(_xInput * _movementSpeed, _rb.velocity.y);
             }
         }
@@ -141,9 +150,9 @@ namespace _Scripts.PlayerScripts
             // Debug.DrawRay(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0), Color.red);
             
             _isLeftWall = Physics2D.Raycast(leftWallCheck.transform.position, new Vector2(-wallCheckRadius, 0),
-                wallCheckRadius,  LayerMask.GetMask("Wall"));
+                wallCheckRadius,  LayerMask.GetMask("Ground"));
             _isRightWall = Physics2D.Raycast(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0),
-                wallCheckRadius,  LayerMask.GetMask("Wall"));
+                wallCheckRadius,  LayerMask.GetMask("Ground"));
 
             if (_isGrounded) return;
             
