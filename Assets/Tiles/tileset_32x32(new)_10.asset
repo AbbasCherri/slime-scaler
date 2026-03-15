@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: pixilart-drawing
+  m_Name: tileset_32x32(new)_10
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 10adf7872b23adf4fa40814eb81325fc, type: 3}
+  m_Sprite: {fileID: -940018027, guid: 39ff9aab87d7ee04ca78cfd882c18d48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
