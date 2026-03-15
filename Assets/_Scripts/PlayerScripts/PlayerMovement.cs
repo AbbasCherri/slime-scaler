@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.PlayerScripts
 {
@@ -22,8 +23,9 @@ namespace _Scripts.PlayerScripts
         private float _currentReserveTime;
         private bool _reservedJump;
         private bool _isGrounded;
-        [Header("Wall Jump")] [SerializeField] private GameObject leftWallCheck;
-        [SerializeField] private GameObject rightWallCheck;
+        [Header("Wall Jump")]
+        [FormerlySerializedAs("rightWallCheck")]
+        [SerializeField] private GameObject wallCheck;
         [SerializeField] private float wallCheckRadius;
         [SerializeField] [Range(0,1)] private float slideSpeed;
         [SerializeField] private float horizonWallJumpingSpeed; 
@@ -31,8 +33,7 @@ namespace _Scripts.PlayerScripts
         [SerializeField] private float wallJumpDuration;
         private bool _isWallJumping;
         private float _currentWallTime;
-        private bool _isRightWall;
-        private bool _isLeftWall;
+        private bool _isOnWall;
 
         private void Start()
         {
@@ -75,7 +76,7 @@ namespace _Scripts.PlayerScripts
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
         }
 
-        private void WallJump(int direction)
+        private void WallJump(float direction)
         {
             _isWallJumping = true;
             _currentWallTime = 0;
@@ -148,12 +149,9 @@ namespace _Scripts.PlayerScripts
 
         private void WallJumpLogic()
         {
-            // Debug.DrawRay(leftWallCheck.transform.position, new Vector2(-wallCheckRadius, 0),  Color.red);
             // Debug.DrawRay(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0), Color.red);
             
-            _isLeftWall = Physics2D.Raycast(leftWallCheck.transform.position, new Vector2(-wallCheckRadius, 0),
-                wallCheckRadius,  LayerMask.GetMask("Ground"));
-            _isRightWall = Physics2D.Raycast(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0),
+            _isOnWall = Physics2D.Raycast(wallCheck.transform.position, new Vector2(_facingDirection * wallCheckRadius, 0),
                 wallCheckRadius,  LayerMask.GetMask("Ground"));
 
             if (_isGrounded) return;
@@ -166,18 +164,14 @@ namespace _Scripts.PlayerScripts
                     _isWallJumping = false;
                 }
             }
-        
-            if (_isLeftWall && Input.GetButtonDown("Jump"))
-            {
-                WallJump(1);
-            }
+            
 
-            if (_isRightWall && Input.GetButtonDown("Jump"))
+            if (_isOnWall && Input.GetButtonDown("Jump"))
             {
-                WallJump(-1);
+                WallJump(-_facingDirection);
             }
             
-            if ((_isLeftWall || _isRightWall) && !_isWallJumping)
+            if (_isOnWall && !_isWallJumping)
             {
                 _rb.velocity = new Vector2(transform.position.x, Physics2D.gravity.y * slideSpeed);
             }

@@ -43,9 +43,10 @@ namespace _Scripts.PlayerScripts
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Ground"))
+
+            if (other.gameObject.CompareTag("Player"))
             {
-                Destroy(gameObject);
+                return;
             }
 
             if (other.gameObject.CompareTag("Enemy"))
@@ -54,6 +55,8 @@ namespace _Scripts.PlayerScripts
                 PlayerHealth.GetInstance().Heal(.1f);
                 Destroy(gameObject);
             }
+            
+            Destroy(gameObject);
             
         }
         

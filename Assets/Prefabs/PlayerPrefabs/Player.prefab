@@ -92,7 +92,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6210573830019731044}
-  - {fileID: 8252577134190394857}
   m_Father: {fileID: 2973636320792802029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4453921592963942061
@@ -271,8 +270,7 @@ MonoBehaviour:
   lowJumpMultiplier: 2
   coyoteTime: 0.1
   reserveTime: 1
-  leftWallCheck: {fileID: 8452306079868705906}
-  rightWallCheck: {fileID: 7299223061627456804}
+  wallCheck: {fileID: 7299223061627456804}
   wallCheckRadius: 0.08
   slideSpeed: 0.4
   horizonWallJumpingSpeed: 8
@@ -511,34 +509,3 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &8452306079868705906
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8252577134190394857}
-  m_Layer: 0
-  m_Name: LeftWallCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8252577134190394857
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8452306079868705906}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.38899994, y: -0.11199999, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4260813853062349071}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
