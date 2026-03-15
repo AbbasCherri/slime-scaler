@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 48097267}
   - component: {fileID: 48097266}
   - component: {fileID: 48097268}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,45 +1000,6 @@ Transform:
   - {fileID: 48097265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1539127736 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8425750059594876161, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-  m_PrefabInstance: {fileID: 1827678715}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1539127738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539127736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &1827678715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1047,10 +1008,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2677464279422927674, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2973636320792802029, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.34719
@@ -1095,37 +1052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5360953403943456506, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5360953403943456506, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5360953403943456506, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-      propertyPath: slideSpeed
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-      propertyPath: wallCheckRadius
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6511141439087795005, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-      propertyPath: wallJumpDuration
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8425750059594876161, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1539127738}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11e3a3d61d15c08c1870fd11504966e8, type: 3}
 --- !u!4 &2125840270 stripped
 Transform:
