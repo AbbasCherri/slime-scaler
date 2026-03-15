@@ -149,7 +149,7 @@ namespace _Scripts.PlayerScripts
 
         private void WallJumpLogic()
         {
-            // Debug.DrawRay(rightWallCheck.transform.position, new Vector2(wallCheckRadius, 0), Color.red);
+            Debug.DrawRay(wallCheck.transform.position, new Vector2(_facingDirection * wallCheckRadius, 0), Color.red);
             
             _isOnWall = Physics2D.Raycast(wallCheck.transform.position, new Vector2(_facingDirection * wallCheckRadius, 0),
                 wallCheckRadius,  LayerMask.GetMask("Ground"));

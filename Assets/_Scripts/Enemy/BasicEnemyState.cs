@@ -41,7 +41,7 @@ namespace _Scripts.Enemy
             _dir = transform.localScale.x;
 
             _isObstacle = Physics2D.Raycast(obstacleCheck.transform.position, new Vector2(_dir, 0), rayLength,
-                LayerMask.GetMask("Wall"));
+                LayerMask.GetMask("Ground"));
 
             if (_isObstacle)
             {
