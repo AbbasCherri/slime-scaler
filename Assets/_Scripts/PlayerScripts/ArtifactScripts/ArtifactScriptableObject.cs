@@ -10,5 +10,25 @@ namespace _Scripts.PlayerScripts.ArtifactScripts
         private string _artifactFlavorText;
         private string _artifactDescription;
 
+        public string GetArtifactName()
+        {
+            return _artifactName;
+        }
+
+        public ArtifactRarity GetArtifactRarity()
+        {
+            return _artifactRarity;
+        }
+
+        public string GetArtifactFlavorText()
+        {
+            return _artifactFlavorText;
+
+        }
+
+        public string GetArtifactDescription()
+        {
+            return _artifactDescription;
+        }
     }
 }
