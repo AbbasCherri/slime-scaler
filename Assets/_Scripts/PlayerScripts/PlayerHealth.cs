@@ -9,6 +9,8 @@ namespace _Scripts.PlayerScripts
     {
         [Header("Health")]
         [SerializeField] private float maxHealth;
+        [SerializeField] private float minHealth;
+        private const float BaseHealth = 1;
         private float _currentHealth;
         private SpriteRenderer _sr;
         private Color _defaultColor;
@@ -29,7 +31,7 @@ namespace _Scripts.PlayerScripts
 
         private void Start()
         {
-            _currentHealth = maxHealth;
+            _currentHealth = BaseHealth;
             _sr =  gameObject.GetComponent<SpriteRenderer>();
             _defaultColor = _sr.color;
             _isDead = false;
@@ -45,9 +47,9 @@ namespace _Scripts.PlayerScripts
         {
             var net = _currentHealth - healthPoints;
             StartCoroutine(ColorFlash(Color.red, .3f));
-            if (net < 0)
+            if (net < minHealth)
             {
-                _currentHealth = 0;
+                _currentHealth = minHealth;
                 _isDead = true;
             }
             else
