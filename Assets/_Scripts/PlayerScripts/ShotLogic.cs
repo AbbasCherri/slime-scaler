@@ -10,14 +10,12 @@ namespace _Scripts.PlayerScripts
         [SerializeField] private float bulletSpeed;
         [SerializeField] private float bulletDamage;
         private float _currentLifeTime;
-        private GameObject _player;
         private Rigidbody2D _rb;
         private float _dir;
         
         private void Start()
         {
-            _player = GameObject.FindWithTag("Player");
-            _dir = _player.transform.localScale.x;
+            _dir = PlayerMovement.GetInstance().GetFacingDirection();
             _rb = GetComponent<Rigidbody2D>();
         }
 

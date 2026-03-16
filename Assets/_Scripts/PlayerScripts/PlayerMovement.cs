@@ -23,6 +23,7 @@ namespace _Scripts.PlayerScripts
         private float _currentReserveTime;
         private bool _reservedJump;
         private bool _isGrounded;
+        private static PlayerMovement _instance;
         [Header("Wall Jump")]
         [FormerlySerializedAs("rightWallCheck")]
         [SerializeField] private GameObject wallCheck;
@@ -34,12 +35,24 @@ namespace _Scripts.PlayerScripts
         private bool _isWallJumping;
         private float _currentWallTime;
         private bool _isOnWall;
-        [SerializeField] public Animator animator;
+        [Header("Animations")]
+        public Animator animator;
+
+
+        private void Awake()
+        {
+            if (_instance != null && _instance != this)
+            {
+                Destroy(gameObject);
+            }
+            _instance = this;
+        }
 
         private void Start()
         {
             _facingDirection = 1;
             _rb = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
         }
 
         private void Update()
@@ -181,6 +194,17 @@ namespace _Scripts.PlayerScripts
                 _rb.velocity = new Vector2(transform.position.x, Physics2D.gravity.y * slideSpeed);
             }
             
+        }
+
+
+        public float GetFacingDirection()
+        {
+            return _facingDirection;
+        }
+
+        public static PlayerMovement GetInstance()
+        {
+            return _instance;
         }
     }
 }

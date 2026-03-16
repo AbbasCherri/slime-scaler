@@ -1,6 +1,7 @@
+using _Scripts.PlayerScripts.ArtifactScripts;
 using UnityEngine;
 
-namespace _Scripts.PlayerScripts.ArtifactScripts
+namespace _Scripts.ScriptableObjects
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Artifact", fileName = "Artifact ScriptableObject", order = 0)]
     public class ArtifactScriptableObject : ScriptableObject
