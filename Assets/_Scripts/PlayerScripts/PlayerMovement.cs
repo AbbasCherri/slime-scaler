@@ -9,6 +9,8 @@ namespace _Scripts.PlayerScripts
         [Header("Movement")] 
         [SerializeField] private float speed;
         [SerializeField] private float sprintSpeed;
+        private float _ogSpeed;
+        private float _ogSprint;
         private float _movementSpeed;
         private Rigidbody2D _rb;
         private float _xInput;
@@ -54,6 +56,8 @@ namespace _Scripts.PlayerScripts
             _facingDirection = 1;
             _rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            _ogSpeed = speed;
+            _ogSprint = sprintSpeed;
         }
 
         private void Update()
@@ -208,6 +212,12 @@ namespace _Scripts.PlayerScripts
         {
             speed *= newSpeed;
             sprintSpeed *= newSpeed;
+        }
+
+        public void ResetSpeed()
+        {
+            speed = _ogSpeed;
+            sprintSpeed = _ogSprint;
         }
 
         public static PlayerMovement GetInstance()

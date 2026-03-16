@@ -8,11 +8,21 @@ namespace _Scripts.ArtifactScripts
     public class SwiftyArtifact : MonoBehaviour, IArtifactable
     {
         [SerializeField] private ArtifactScriptableObject artifact;
+        private bool _isInitialized = false;
 
+        
+        private void Start()
+        {
+            Ability();
+            _isInitialized = true;
+        }
 
         private void OnEnable()
         {
-            Ability();
+            if (_isInitialized)
+            {
+                Ability();
+            }
         }
 
         private void OnDisable()
@@ -22,12 +32,20 @@ namespace _Scripts.ArtifactScripts
 
         public void Ability()
         {
-            PlayerMovement.GetInstance().SetSpeed(1.2f);
+            var player = PlayerMovement.GetInstance();
+            if (player != null)
+            {
+                player.SetSpeed(1.2f);
+            }
         }
 
         public void Deactivate()
         {
-            PlayerMovement.GetInstance().SetSpeed(1f/1.2f);
+            var player = PlayerMovement.GetInstance();
+            if (player != null)
+            {
+                player.ResetSpeed();
+            }
         }
     }
 }

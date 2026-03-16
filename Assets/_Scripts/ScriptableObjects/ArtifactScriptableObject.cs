@@ -1,3 +1,4 @@
+using _Scripts.ArtifactScripts;
 using _Scripts.PlayerScripts.ArtifactScripts;
 using UnityEngine;
 
