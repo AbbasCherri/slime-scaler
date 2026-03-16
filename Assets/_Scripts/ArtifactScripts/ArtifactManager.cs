@@ -14,7 +14,7 @@ namespace _Scripts.ArtifactScripts
         {
             foreach (var t in artifactObjects)
             {
-                _artifacts.Add(GetComponent<>);
+               // _artifacts.Add(GetComponent<>);
             }
             
             
