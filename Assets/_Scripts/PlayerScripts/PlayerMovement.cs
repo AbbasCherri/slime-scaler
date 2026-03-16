@@ -6,12 +6,14 @@ namespace _Scripts.PlayerScripts
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [Header("Movement")] [SerializeField] private float speed;
+        [Header("Movement")] 
+        [SerializeField] private float speed;
         [SerializeField] private float sprintSpeed;
         private float _movementSpeed;
         private Rigidbody2D _rb;
         private float _xInput;
         private int _facingDirection;
+        private static PlayerMovement _instance;
         [Header("Jump")] [SerializeField] private float jumpForce;
         [SerializeField] private float groundRadius;
         [SerializeField] private GameObject groundCheck;
@@ -23,7 +25,6 @@ namespace _Scripts.PlayerScripts
         private float _currentReserveTime;
         private bool _reservedJump;
         private bool _isGrounded;
-        private static PlayerMovement _instance;
         [Header("Wall Jump")]
         [FormerlySerializedAs("rightWallCheck")]
         [SerializeField] private GameObject wallCheck;
@@ -105,7 +106,8 @@ namespace _Scripts.PlayerScripts
         private void JumpLogic()
         {
             _isGrounded =
-                Physics2D.OverlapCircle(groundCheck.transform.position, groundRadius, LayerMask.GetMask("Ground"));
+                Physics2D.OverlapCircle(groundCheck.transform.position, groundRadius, 
+                    LayerMask.GetMask("Ground", "Hybrid"));
 
             // Reserved Jump Time Logic
         
@@ -170,7 +172,7 @@ namespace _Scripts.PlayerScripts
             Debug.DrawRay(wallCheck.transform.position, new Vector2(_facingDirection * wallCheckRadius, 0), Color.red);
             
             _isOnWall = Physics2D.Raycast(wallCheck.transform.position, new Vector2(_facingDirection * wallCheckRadius, 0),
-                wallCheckRadius,  LayerMask.GetMask("Ground"));
+                wallCheckRadius,  LayerMask.GetMask("Ground", "Hybrid"));
 
             if (_isGrounded) return;
             
@@ -200,6 +202,12 @@ namespace _Scripts.PlayerScripts
         public float GetFacingDirection()
         {
             return _facingDirection;
+        }
+
+        public void SetSpeed(float newSpeed)
+        {
+            speed *= newSpeed;
+            sprintSpeed *= newSpeed;
         }
 
         public static PlayerMovement GetInstance()

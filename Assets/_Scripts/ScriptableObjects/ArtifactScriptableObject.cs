@@ -6,30 +6,31 @@ namespace _Scripts.ScriptableObjects
     [CreateAssetMenu(menuName = "ScriptableObjects/Artifact", fileName = "Artifact ScriptableObject", order = 0)]
     public class ArtifactScriptableObject : ScriptableObject
     {
-        private string _artifactName;
-        private ArtifactRarity _artifactRarity;
-        private string _artifactFlavorText;
-        private string _artifactDescription;
+        [Header("Artifact Settings")]
+        [SerializeField]private string artifactName;
+        [SerializeField] private ArtifactRarity artifactRarity;
+        [SerializeField] private string artifactFlavorText;
+        [SerializeField] private string artifactDescription;
 
         public string GetArtifactName()
         {
-            return _artifactName;
+            return artifactName;
         }
 
         public ArtifactRarity GetArtifactRarity()
         {
-            return _artifactRarity;
+            return artifactRarity;
         }
 
         public string GetArtifactFlavorText()
         {
-            return _artifactFlavorText;
+            return artifactFlavorText;
 
         }
 
         public string GetArtifactDescription()
         {
-            return _artifactDescription;
+            return artifactDescription;
         }
     }
 }
