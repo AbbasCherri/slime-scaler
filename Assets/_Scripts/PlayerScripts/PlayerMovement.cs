@@ -27,6 +27,7 @@ namespace _Scripts.PlayerScripts
         private float _currentReserveTime;
         private bool _reservedJump;
         private bool _isGrounded;
+	private bool _isSprinting;
         [Header("Wall Jump")]
         [FormerlySerializedAs("rightWallCheck")]
         [SerializeField] private GameObject wallCheck;
@@ -71,9 +72,12 @@ namespace _Scripts.PlayerScripts
 
             // Wall Jump Logic
             WallJumpLogic();
+	    _isSprinting = Input.GetKey(KeyCode.LeftShift) ? true: false;
+	    //Animator Logic
             animator.SetFloat("Speed", Math.Abs(_rb.velocity.x));
             animator.SetFloat("yVel", _rb.velocity.y);
             animator.SetBool("Grounded", _isGrounded);
+	    animator.SetBool("Sprint",_isSprinting);
         }
 
         private void FixedUpdate()
