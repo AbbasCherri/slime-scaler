@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace _Scripts.ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Artifact", fileName = "Artifact ScriptableObject", order = 0)]
-    public class ArtifactScriptableObject : ScriptableObject
+    
+    public abstract class ArtifactScriptableObject : ScriptableObject
     {
         [Header("Artifact Settings")]
         [SerializeField]private string artifactName;
@@ -33,5 +33,6 @@ namespace _Scripts.ScriptableObjects
         {
             return artifactDescription;
         }
+        
     }
 }
