@@ -41,6 +41,11 @@ namespace _Scripts.PlayerScripts
         private bool _isOnWall;
         [Header("Animations")]
         public Animator animator;
+        [Header("Audio")]
+        [SerializeField] private AudioClip jumpSound;
+        [SerializeField] private AudioClip moveSound;
+
+        private float _moveTimer;
 
 
         private void Awake()
@@ -66,6 +71,23 @@ namespace _Scripts.PlayerScripts
             // Movement
             _xInput = Input.GetAxisRaw("Horizontal");
             _movementSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : speed;
+            
+            // Movement Sound
+            if (Mathf.Abs(_xInput) > 0.1f && _isGrounded)
+            {
+                _moveTimer -= Time.deltaTime;
+
+                if (_moveTimer <= 0f)
+                {
+                    
+                    AudioManager.instance.PlaySFX(moveSound);
+                    _moveTimer = 0.7f; 
+                }
+            }
+            else
+            {
+                _moveTimer = 0f;
+            }
 
             // Jump
             JumpLogic();
@@ -100,6 +122,8 @@ namespace _Scripts.PlayerScripts
         {
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
             animator.SetTrigger("Jump");
+            
+            AudioManager.instance.PlaySFX(jumpSound); //Sound when jump
         }
 
         private void WallJump(float direction)
@@ -108,6 +132,8 @@ namespace _Scripts.PlayerScripts
             _currentWallTime = 0;
             _rb.velocity = new  Vector2(direction * horizonWallJumpingSpeed, verticalWallJumpingSpeed);
             animator.SetTrigger("Jump");
+            
+            AudioManager.instance.PlaySFX(jumpSound); // Sound when jump
         }
 
 

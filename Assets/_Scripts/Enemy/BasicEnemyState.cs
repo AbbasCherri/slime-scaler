@@ -58,7 +58,7 @@ namespace _Scripts.Enemy
         {
             // Debug.DrawRay(playerCheck.transform.position, new Vector2(_dir, 0) * playerRayLength, Color.red);
 
-            _isPlayerPresent = Physics2D.Raycast(playerCheck.transform.position, new Vector2(_dir, 1), playerRayLength,
+            _isPlayerPresent = Physics2D.Raycast(playerCheck.transform.position, new Vector2(_dir, 0), playerRayLength,
                 LayerMask.GetMask("Default"));
 
             if (_isPlayerPresent)

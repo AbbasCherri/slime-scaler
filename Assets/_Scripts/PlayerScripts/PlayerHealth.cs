@@ -4,6 +4,7 @@ using _Scripts.Interfaces;
 using UnityEngine;
 
 namespace _Scripts.PlayerScripts
+
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
@@ -16,6 +17,9 @@ namespace _Scripts.PlayerScripts
         private Color _defaultColor;
         private bool _isDead;
         private static PlayerHealth _instance;
+        
+        [Header("Audio")]
+        [SerializeField] private AudioClip healSound;
 
 
         private void Awake()
@@ -68,6 +72,11 @@ namespace _Scripts.PlayerScripts
             _currentHealth = net >= maxHealth ? maxHealth : net;
             
             Scale(_currentHealth);
+            
+            if (AudioManager.instance != null && healSound != null) 
+            {
+                AudioManager.instance.sfxSource.PlayOneShot(healSound, 0.6f); // Sound on Heal
+            }
         }
 
         public float GetMaxHealth()

@@ -14,6 +14,9 @@ namespace _Scripts.PlayerScripts
         [SerializeField] private float scaleLose;
         [SerializeField] private float scaleGain;
         private float _prevShotTime;
+        
+        [Header("Audio")]
+        [SerializeField] private AudioClip shootSound;
 
 
         private void Update()
@@ -32,6 +35,11 @@ namespace _Scripts.PlayerScripts
         {
             Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletPrefab.transform.rotation);
             PlayerHealth.GetInstance().Damage(scaleLose);
+            
+            if (AudioManager.instance != null && shootSound != null)
+            {
+                AudioManager.instance.sfxSource.PlayOneShot(shootSound, 0.3f); 
+            }
         }
         
     }
