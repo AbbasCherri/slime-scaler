@@ -27,7 +27,7 @@ namespace _Scripts.PlayerScripts
         private float _currentReserveTime;
         private bool _reservedJump;
         private bool _isGrounded;
-	private bool _isSprinting;
+    	private bool _isSprinting;
         [Header("Wall Jump")]
         [FormerlySerializedAs("rightWallCheck")]
         [SerializeField] private GameObject wallCheck;
@@ -44,7 +44,10 @@ namespace _Scripts.PlayerScripts
         [Header("Audio")]
         [SerializeField] private AudioClip jumpSound;
         [SerializeField] private AudioClip moveSound;
-
+        [Header("Trap Respawn")]
+        [SerializeField] private float checkpointUpdateInterval = 0.2f;
+        private Vector2 _lastSafePosition;
+        private float _checkpointTimer;
         private float _moveTimer;
 
 
@@ -64,6 +67,7 @@ namespace _Scripts.PlayerScripts
             animator = GetComponent<Animator>();
             _ogSpeed = speed;
             _ogSprint = sprintSpeed;
+            _lastSafePosition = _rb.position;
         }
 
         private void Update()
@@ -100,6 +104,8 @@ namespace _Scripts.PlayerScripts
             animator.SetFloat("yVel", _rb.velocity.y);
             animator.SetBool("Grounded", _isGrounded);
 	    animator.SetBool("Sprint",_isSprinting);
+        SaveSafePosition();
+
         }
 
         private void FixedUpdate()
@@ -236,6 +242,35 @@ namespace _Scripts.PlayerScripts
         public float GetFacingDirection()
         {
             return _facingDirection;
+        }
+        private void SaveSafePosition()
+        {
+            _checkpointTimer += Time.deltaTime;
+
+            if (_checkpointTimer >= checkpointUpdateInterval && _isGrounded && !IsStandingOnMovingPlatform())
+            {
+                _lastSafePosition = _rb.position;
+                _checkpointTimer = 0f;
+            }
+        }
+
+        public void RespawnAtLastSafePosition()
+        {
+            _rb.position = _lastSafePosition;
+            _rb.velocity = Vector2.zero;
+        }
+        private bool IsStandingOnMovingPlatform()
+        {
+            Collider2D hit = Physics2D.OverlapCircle(
+                groundCheck.transform.position,
+                groundRadius,
+                LayerMask.GetMask("Ground", "Hybrid")
+            );
+
+            if (hit == null)
+                return false;
+
+            return hit.GetComponent<MovingPlat>() != null || hit.GetComponentInParent<MovingPlat>() != null;
         }
 
         public void SetSpeed(float newSpeed)
