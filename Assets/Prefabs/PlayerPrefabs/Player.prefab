@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1016649032200755213}
   - component: {fileID: 2566047860262928247}
   - component: {fileID: 3212730051879543711}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -496,6 +496,7 @@ MonoBehaviour:
   animator: {fileID: 1016649032200755213}
   jumpSound: {fileID: 8300000, guid: 9d90fbd8b2c2dfe4a8395874b7a56ec1, type: 3}
   moveSound: {fileID: 8300000, guid: ff595682d472d3646bc8112692db9625, type: 3}
+  checkpointUpdateInterval: 0.2
 --- !u!114 &7061109128025412427
 MonoBehaviour:
   m_ObjectHideFlags: 0

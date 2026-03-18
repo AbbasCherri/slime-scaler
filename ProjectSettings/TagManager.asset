@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Waypoint1
   - Waypoint2
+  - BatEnemy
+  - BatHome
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Hybrid
-  - 
+  - Player
   - 
   - 
   - 
