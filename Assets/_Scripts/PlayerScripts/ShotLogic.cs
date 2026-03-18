@@ -52,6 +52,13 @@ namespace _Scripts.PlayerScripts
                 PlayerHealth.GetInstance().Heal(.1f);
                 Destroy(gameObject);
             }
+
+            if (other.gameObject.CompareTag("BatEnemy"))
+            {
+                Destroy(other.gameObject);
+                PlayerHealth.GetInstance().Heal(.4f);
+                Destroy(gameObject);
+            }
             
             Destroy(gameObject);
             

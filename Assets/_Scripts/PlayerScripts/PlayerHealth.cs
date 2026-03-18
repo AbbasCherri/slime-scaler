@@ -73,9 +73,9 @@ namespace _Scripts.PlayerScripts
             
             Scale(_currentHealth);
             
-            if (AudioManager.instance != null && healSound != null) 
+            if (AudioManager.Instance != null && healSound != null) 
             {
-                AudioManager.instance.sfxSource.PlayOneShot(healSound, 0.6f); // Sound on Heal
+                AudioManager.Instance.sfxSource.PlayOneShot(healSound, 0.6f); // Sound on Heal
             }
         }
 

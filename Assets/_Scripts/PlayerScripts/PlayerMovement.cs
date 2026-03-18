@@ -80,7 +80,7 @@ namespace _Scripts.PlayerScripts
                 if (_moveTimer <= 0f)
                 {
                     
-                    AudioManager.instance.PlaySFX(moveSound);
+                    AudioManager.Instance.PlaySfx(moveSound);
                     _moveTimer = 0.7f; 
                 }
             }
@@ -123,7 +123,7 @@ namespace _Scripts.PlayerScripts
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
             animator.SetTrigger("Jump");
             
-            AudioManager.instance.PlaySFX(jumpSound); //Sound when jump
+            AudioManager.Instance.PlaySfx(jumpSound); //Sound when jump
         }
 
         private void WallJump(float direction)
@@ -133,7 +133,7 @@ namespace _Scripts.PlayerScripts
             _rb.velocity = new  Vector2(direction * horizonWallJumpingSpeed, verticalWallJumpingSpeed);
             animator.SetTrigger("Jump");
             
-            AudioManager.instance.PlaySFX(jumpSound); // Sound when jump
+            AudioManager.Instance.PlaySfx(jumpSound); // Sound when jump
         }
 
 

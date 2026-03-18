@@ -36,9 +36,9 @@ namespace _Scripts.PlayerScripts
             Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletPrefab.transform.rotation);
             PlayerHealth.GetInstance().Damage(scaleLose);
             
-            if (AudioManager.instance != null && shootSound != null)
+            if (AudioManager.Instance != null && shootSound != null)
             {
-                AudioManager.instance.sfxSource.PlayOneShot(shootSound, 0.3f); 
+                AudioManager.Instance.sfxSource.PlayOneShot(shootSound, 0.3f); 
             }
         }
         

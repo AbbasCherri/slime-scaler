@@ -178,8 +178,8 @@ Camera:
   m_GameObject: {fileID: 4323946216762685461}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 7061109128025412427}
   - component: {fileID: 3654732295887317796}
   - component: {fileID: 1016649032200755213}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -491,7 +491,9 @@ MonoBehaviour:
   horizonWallJumpingSpeed: 8
   verticalWallJumpingSpeed: 5
   wallJumpDuration: 0.2
-  animator: {fileID: 0}
+  animator: {fileID: 1016649032200755213}
+  jumpSound: {fileID: 8300000, guid: 9d90fbd8b2c2dfe4a8395874b7a56ec1, type: 3}
+  moveSound: {fileID: 8300000, guid: ff595682d472d3646bc8112692db9625, type: 3}
 --- !u!114 &7061109128025412427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +511,7 @@ MonoBehaviour:
   shotCooldown: 0.5
   scaleLose: 0.1
   scaleGain: 1.2
+  shootSound: {fileID: 8300000, guid: be7472c7da528304a9e85460fcd9c179, type: 3}
 --- !u!114 &3654732295887317796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,7 +525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1.5
-  minHealth: 0.2
+  minHealth: 0.5
+  healSound: {fileID: 8300000, guid: 340b07bbeb9a2db4cbecb7a317c2d6b1, type: 3}
 --- !u!95 &1016649032200755213
 Animator:
   serializedVersion: 5
@@ -702,7 +706,7 @@ Transform:
   m_GameObject: {fileID: 7299223061627456804}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25899982, y: -0.26, z: 0}
+  m_LocalPosition: {x: -0.04, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
