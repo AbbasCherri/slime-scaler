@@ -63,6 +63,11 @@ namespace _Scripts.PlayerScripts
             
             Scale(_currentHealth);
         }
+        public void TakePercentageDamage(float percent)
+        {
+            float damage = BaseHealth * percent;
+            Damage(damage);
+        }
 
         public void Heal(float healthPoints)
         {
