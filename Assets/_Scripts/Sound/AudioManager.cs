@@ -32,9 +32,19 @@ namespace _Scripts.Sound
         private void Start()
         {
             musicSource = GetComponentInChildren<AudioSource>();
+            backgroundMusic = Resources.Load<AudioClip>("Music/bgmusic"); 
+
+            if (backgroundMusic != null)
+            {
+                PlayMusic(backgroundMusic);
+            }
+            else
+            {
+                Debug.LogError("AudioClip not found in Resources!");
+            }
         }
 
-        public void PlayMusic(AudioClip clip)
+        private void PlayMusic(AudioClip clip)
         {
             if (!clip) return;
 
@@ -49,7 +59,7 @@ namespace _Scripts.Sound
         {
             musicSource.Stop();
         }
-
+        
        
         public void PlaySfx(AudioClip clip)
         {

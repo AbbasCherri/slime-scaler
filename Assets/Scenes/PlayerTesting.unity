@@ -789,6 +789,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &1747705181 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3939495314996799196, guid: 1891a28a61b12651bb37ce93d5bf3b20, type: 3}
+  m_PrefabInstance: {fileID: 1764965648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1764965648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -837,6 +842,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3939495314996799196, guid: 1891a28a61b12651bb37ce93d5bf3b20, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594696756989195651, guid: 1891a28a61b12651bb37ce93d5bf3b20, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1747705181}
     - target: {fileID: 9086506624197451546, guid: 1891a28a61b12651bb37ce93d5bf3b20, type: 3}
       propertyPath: m_Name
       value: AudioManager
