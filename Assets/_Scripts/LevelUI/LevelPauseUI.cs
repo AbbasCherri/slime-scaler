@@ -40,7 +40,7 @@ public class LevelPauseUI : MonoBehaviour
     public void ReturnToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu"); // hub scene name
+        SceneManager.LoadScene("MainMenu"); // Menu scene name
     }
 
     public void ExitGame()
