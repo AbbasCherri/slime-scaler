@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return to Hub
+  m_text: Return to Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4518,8 +4518,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -107.2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0.0012, y: -107.2}
+  m_SizeDelta: {x: 170.5247, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1380457319
 MonoBehaviour:
@@ -23739,8 +23739,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: 92.7}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0.00056458, y: 92.7}
+  m_SizeDelta: {x: 170.53, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641470976
 MonoBehaviour:
@@ -24627,7 +24627,7 @@ GameObject:
   - component: {fileID: 2061391024}
   - component: {fileID: 2061391023}
   m_Layer: 5
-  m_Name: Return to Hub
+  m_Name: Return to Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24650,8 +24650,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5.9}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -0.00062513, y: -5.9}
+  m_SizeDelta: {x: 170.53, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2061391023
 MonoBehaviour:
@@ -24699,7 +24699,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2134962609}
         m_TargetAssemblyTypeName: LevelPauseUI, Assembly-CSharp
-        m_MethodName: ReturnToHub
+        m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

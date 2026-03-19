@@ -37,10 +37,10 @@ public class LevelPauseUI : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void ReturnToHub()
+    public void ReturnToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Hub"); // hub scene name
+        SceneManager.LoadScene("MainMenu"); // hub scene name
     }
 
     public void ExitGame()
