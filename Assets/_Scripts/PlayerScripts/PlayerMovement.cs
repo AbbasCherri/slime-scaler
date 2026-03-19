@@ -1,4 +1,5 @@
 using System;
+using _Scripts.Sound;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -44,11 +45,14 @@ namespace _Scripts.PlayerScripts
         [Header("Audio")]
         [SerializeField] private AudioClip jumpSound;
         [SerializeField] private AudioClip moveSound;
+        [SerializeField] private AudioClip music;
         [Header("Trap Respawn")]
         [SerializeField] private float checkpointUpdateInterval = 0.2f;
         private Vector2 _lastSafePosition;
         private float _checkpointTimer;
         private float _moveTimer;
+        [Header("Particle")] 
+        [SerializeField] private ParticleSystem smoke;
 
 
         private void Awake()
@@ -65,6 +69,7 @@ namespace _Scripts.PlayerScripts
             _facingDirection = 1;
             _rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            smoke = GetComponentInChildren<ParticleSystem>();
             _ogSpeed = speed;
             _ogSprint = sprintSpeed;
             _lastSafePosition = _rb.position;
@@ -83,7 +88,6 @@ namespace _Scripts.PlayerScripts
 
                 if (_moveTimer <= 0f)
                 {
-                    
                     AudioManager.Instance.PlaySfx(moveSound);
                     _moveTimer = 0.7f; 
                 }
@@ -121,6 +125,10 @@ namespace _Scripts.PlayerScripts
 
                 transform.localScale = new Vector3(_facingDirection * Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 _rb.velocity = new Vector2(_xInput * _movementSpeed, _rb.velocity.y);
+                if (_rb.velocity.y == 0)
+                {
+                    smoke.Play();
+                }
             }
         }
 
@@ -128,6 +136,7 @@ namespace _Scripts.PlayerScripts
         {
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
             animator.SetTrigger("Jump");
+            smoke.Play();
             
             AudioManager.Instance.PlaySfx(jumpSound); //Sound when jump
         }
@@ -138,6 +147,7 @@ namespace _Scripts.PlayerScripts
             _currentWallTime = 0;
             _rb.velocity = new  Vector2(direction * horizonWallJumpingSpeed, verticalWallJumpingSpeed);
             animator.SetTrigger("Jump");
+            smoke.Play();
             
             AudioManager.Instance.PlaySfx(jumpSound); // Sound when jump
         }

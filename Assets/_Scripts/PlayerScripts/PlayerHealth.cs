@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _Scripts.Interfaces;
+using _Scripts.Sound;
 using UnityEngine;
 
 namespace _Scripts.PlayerScripts

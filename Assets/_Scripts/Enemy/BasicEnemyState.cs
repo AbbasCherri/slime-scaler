@@ -9,7 +9,7 @@ namespace _Scripts.Enemy
         [SerializeField] private GameObject obstacleCheck;
         [SerializeField] private float rayLength;
         [SerializeField] private float speed;
-        private bool _isObstacle;
+        [SerializeField] private bool _isObstacle;
         private float _dir;
         private Rigidbody2D _rb;
         [Header("Attacking")] 
@@ -17,7 +17,7 @@ namespace _Scripts.Enemy
         [SerializeField] private float playerRayLength;
         [SerializeField] [Range(0,1)] private float damage;
         [SerializeField] private float attackSpeed;
-        private bool _isPlayerPresent;
+        [SerializeField] private bool _isPlayerPresent;
 
 
         private void Start()
@@ -27,10 +27,8 @@ namespace _Scripts.Enemy
 
         private void Update()
         {
-            if (!_isPlayerPresent)
-            {
-                BasicPathing();
-            }
+            
+            BasicPathing();
             
             BasicAttacking();
             
@@ -40,15 +38,17 @@ namespace _Scripts.Enemy
         {
             _dir = transform.localScale.x;
 
+            Debug.DrawRay(playerCheck.transform.position, new Vector2(_dir, 0) * rayLength, Color.red);
+
             _isObstacle = Physics2D.Raycast(obstacleCheck.transform.position, new Vector2(_dir, 0), rayLength,
-                LayerMask.GetMask("Ground"));
+                LayerMask.GetMask("Ground", "Hybrid"));
 
             if (_isObstacle)
             {
                 _dir *= -1;
-                transform.localScale = new Vector2(_dir, 1);
-                obstacleCheck.transform.localScale = new Vector2(_dir, 1);
-                playerCheck.transform.localScale = new Vector2(_dir, 1);
+                transform.localScale = new Vector3(_dir, 1, 1);
+                obstacleCheck.transform.localScale = new Vector3(_dir, 1, 1);
+                playerCheck.transform.localScale = new Vector3(_dir, 1, 1);
             }
             
             _rb.velocity = new Vector2(_dir * speed, 0);
@@ -59,7 +59,7 @@ namespace _Scripts.Enemy
             // Debug.DrawRay(playerCheck.transform.position, new Vector2(_dir, 0) * playerRayLength, Color.red);
 
             _isPlayerPresent = Physics2D.Raycast(playerCheck.transform.position, new Vector2(_dir, 0), playerRayLength,
-                LayerMask.GetMask("Default"));
+                LayerMask.GetMask("Player"));
 
             if (_isPlayerPresent)
             {
