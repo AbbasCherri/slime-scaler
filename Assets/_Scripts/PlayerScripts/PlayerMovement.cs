@@ -1,4 +1,5 @@
 using System;
+using _Scripts.Sound;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -44,6 +45,8 @@ namespace _Scripts.PlayerScripts
         [Header("Audio")]
         [SerializeField] private AudioClip jumpSound;
         [SerializeField] private AudioClip moveSound;
+        [SerializeField] private AudioClip music;
+        private float _count = 0;
         [Header("Trap Respawn")]
         [SerializeField] private float checkpointUpdateInterval = 0.2f;
         private Vector2 _lastSafePosition;
@@ -86,7 +89,11 @@ namespace _Scripts.PlayerScripts
 
                 if (_moveTimer <= 0f)
                 {
-                    
+                    if (_count == 0)
+                    {
+                        AudioManager.Instance.PlayMusic(music);
+                        _count++;
+                    }
                     AudioManager.Instance.PlaySfx(moveSound);
                     _moveTimer = 0.7f; 
                 }

@@ -1,32 +1,62 @@
+using System;
+using System.IO;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class AudioManager : MonoBehaviour
+namespace _Scripts.Sound
 {
-    public static AudioManager Instance;
-
-    public AudioSource sfxSource;
-    // public AudioClip 
-    
-
-    private void Awake()
+    public class AudioManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static AudioManager Instance;
+
+        [Header("Audio Sources")]
+        public AudioSource musicSource;
+        public AudioSource sfxSource;
+
+        [Header("Default Music")]
+        public AudioClip backgroundMusic;
+
+        private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject); 
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+
+        private void Start()
         {
-            Destroy(gameObject);
+            musicSource = GetComponentInChildren<AudioSource>();
+        }
+
+        public void PlayMusic(AudioClip clip)
+        {
+            if (!clip) return;
+
+            musicSource.clip = clip;
+            musicSource.loop = true;
+            musicSource.pitch = 1.0f;
+            musicSource.volume = .2f;
+            musicSource.Play();
+        }
+
+        public void StopMusic()
+        {
+            musicSource.Stop();
+        }
+
+       
+        public void PlaySfx(AudioClip clip)
+        {
+            if (!clip) return;
+
+            sfxSource.pitch = Random.Range(0.9f, 1.1f);
+            sfxSource.PlayOneShot(clip);
         }
     }
-
-    public void PlaySfx(AudioClip clip)
-    {
-        sfxSource.pitch = Random.Range(0.9f, 1.1f);
-        sfxSource.PlayOneShot(clip);
-    }
-
-    
-    
 }
-    

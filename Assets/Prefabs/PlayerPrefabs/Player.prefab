@@ -497,6 +497,7 @@ MonoBehaviour:
   animator: {fileID: 1016649032200755213}
   jumpSound: {fileID: 8300000, guid: 9d90fbd8b2c2dfe4a8395874b7a56ec1, type: 3}
   moveSound: {fileID: 8300000, guid: ff595682d472d3646bc8112692db9625, type: 3}
+  music: {fileID: 8300000, guid: 1cb53f0bc99270173b1fdc047e7f581c, type: 3}
   checkpointUpdateInterval: 0.2
   smoke: {fileID: 0}
 --- !u!114 &7061109128025412427
@@ -565,7 +566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31087618ebc1bc4c8e68fb9f8d16967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicSource: {fileID: 0}
   sfxSource: {fileID: 3212730051879543711}
+  backgroundMusic: {fileID: 0}
 --- !u!82 &3212730051879543711
 AudioSource:
   m_ObjectHideFlags: 0
