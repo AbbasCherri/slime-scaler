@@ -18,6 +18,7 @@ namespace _Scripts.Enemy
         [SerializeField] [Range(0,1)] private float damage;
         [SerializeField] private float attackSpeed;
         [SerializeField] private bool _isPlayerPresent;
+        [SerializeField] private Animator animator;
 
 
         private void Start()
@@ -31,7 +32,7 @@ namespace _Scripts.Enemy
             BasicPathing();
             
             BasicAttacking();
-            
+            animator.Play("Fly");
         }
 
         private void BasicPathing()

@@ -66,6 +66,7 @@ namespace _Scripts.PlayerScripts
 
         private void Start()
         {
+            transform.position = Vector2.zero;
             _facingDirection = 1;
             _rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
