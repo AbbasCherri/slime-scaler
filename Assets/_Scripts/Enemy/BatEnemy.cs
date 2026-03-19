@@ -1,6 +1,7 @@
 using _Scripts.PlayerScripts;
 using UnityEngine;
 using Pathfinding;
+using Unity.VisualScripting;
 
 namespace _Scripts.Enemy
 {
@@ -16,6 +17,7 @@ namespace _Scripts.Enemy
         private bool _isResting; 
         [SerializeField] private float aggroRadius;
         [SerializeField] private float coolDownTime;
+        [SerializeField] private Animator animator;
 
         private void Start()
         {
@@ -54,6 +56,7 @@ namespace _Scripts.Enemy
             {
                 _destinationSetter.target = _home;
             }
+            animator.Play("Fly");
         }
         
         private void OnCollisionEnter2D(Collision2D other)
